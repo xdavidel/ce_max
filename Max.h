@@ -1,18 +1,7 @@
 #pragma once
 
-template <typename T>
-T &Max(T item1, T item2, T item3)
+template <typename T, typename COMP>
+T &Max(T item1, T item2, COMP comp)
 {
-	T retItem = item1;
-	if (item2 > retItem)
-	{
-		retItem = item2;
-	}
-
-	if (item3 > retItem)
-	{
-		retItem = item3;
-	}
-
-	return retItem;
+	return comp(item1, item2) > 0 ? item1 : item2;
 }
